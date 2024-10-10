@@ -72,7 +72,7 @@ const registerUser = async (payload: IUser) => {
     };
   
     const resetToken = jwt.sign(jwtPayload, config.jwt_access_secret as string, {
-      expiresIn: '30m',
+      expiresIn: '10m',
     });
   
     const resetUILink = `${config.reset_pass_ui_link}?email=${user.email}&token=${resetToken}`;
