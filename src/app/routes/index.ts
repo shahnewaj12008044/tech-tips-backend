@@ -4,6 +4,8 @@ import { UserRoutes } from '../modules/user/user.route';
 import { PostRoutes } from '../modules/post/post.route';
 import { CommentRoutes } from '../modules/comment/comment.route';
 import { PaymentRoutes } from '../modules/payment/payment.route';
+import { NotificationRoutes } from '../modules/notification/notification.route';
+import { AnalyticsRoutes } from '../modules/analytics/analytics.route';
 
 
 const router = Router();
@@ -28,6 +30,14 @@ const moduleRoutes = [
   {
     path: '/payment',
     route: PaymentRoutes,
+  },
+  {
+    path: '/notifications',
+    route: NotificationRoutes,
+  },
+  {
+    path: '/analytics',
+    route: AnalyticsRoutes,
   },
 ];
 
