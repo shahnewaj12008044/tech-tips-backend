@@ -5,6 +5,7 @@ import { User } from '../user/user.model';
 import { postSeachableFields } from './post.constant';
 import { IPost } from './post.interface';
 import { Post } from './post.model';
+import { Notification } from '../notification/notification.model';
 
 //creating post
 const createPostIntoDB = async (payload: any, authorId: any) => {
@@ -17,8 +18,23 @@ const createPostIntoDB = async (payload: any, authorId: any) => {
   if (!user) {
     throw new Error('User not found');
   }
+
+  const followers = await User.find({ following: authorId });
+
+  const notifications = followers.map((follower) => ({
+    userId: follower._id,
+    type: 'new_post',
+    message: `${user.name} has created a new post: "${result.title}".`,
+    postId: result._id,
+  }));
+
+  if (notifications.length > 0) {
+    await Notification.insertMany(notifications);
+  }
+
   return result;
 };
+
 
 //get single post
 const getSinglePostFromDB = async (id: string) => {
@@ -55,7 +71,7 @@ const updatePostIntoDB = async (id: string, payload: Partial<IPost>) => {
 //deleting post
 const deletePostFromDB = async (id: string) => {
   const result = await Post.findByIdAndDelete(id);
- 
+  await Notification.deleteMany({ postId: id });
   return result;
 };
 
