@@ -11,26 +11,51 @@
 
 
 
-### Endpoints:
+## API Endpoints
 
-1. Sign Up: (POST) /api/auth/register;
-2. Sign In: (POST) /api/auth/login;
-3. Forget Password: (POST) /api/auth/forget-password; 
-4. Reset Password: (POST) /api/auth/reset-password;
-5. Post: (POST) /api/post,
-   a. (GET) /api/post,
-   b.(GET) /api/post/:id,
-   c. (PUT) /api/post/:id,
-   c. (DELETE) /api/post/:id,
-   e. (GET) /api/users/my-post/:email  ,
-   f. (POST) /api/:post/upvote,
-   g.(POST) /api/:post/downvote;
-6. Comment: (POST) /api/comment, (PUT) /api/comment/:id, (DELETE) /api/comment/:id;
-7. Payment: (POST) /api/initiate-payment, (POST) /api/confirmation;
-8. User: (GET) /api/users/:email, (PUT) /api/users/:email, (POST) /api/users/follow, (POST) /api/users/unfollow;
-9. Notification: (GET) /api/notification/:userId, (DELETE) /api/notification/:userId/:postId;
-10. Anaylatics: 
+### 1. Authentication
+   - a. **Sign Up**: `(POST) /api/auth/register`
+   - b. **Sign In**: `(POST) /api/auth/login`
+   - c. **Forget Password**: `(POST) /api/auth/forget-password`
+   - d. **Reset Password**: `(POST) /api/auth/reset-password`
 
+### 2. Post
+   - a. **Create Post**: `(POST) /api/post`
+   - b. **Get All Posts**: `(GET) /api/post`
+   - c. **Get Post by ID**: `(GET) /api/post/:id`
+   - d. **Update Post by ID**: `(PUT) /api/post/:id`
+   - e. **Delete Post by ID**: `(DELETE) /api/post/:id`
+   - f. **Get User's Posts**: `(GET) /api/users/my-post/:email`
+   - g. **Upvote Post**: `(POST) /api/:post/upvote`
+   - h. **Downvote Post**: `(POST) /api/:post/downvote`
+
+### 3. Comment
+   - a. **Create Comment**: `(POST) /api/comment`
+   - b. **Update Comment**: `(PUT) /api/comment/:id`
+   - c. **Delete Comment**: `(DELETE) /api/comment/:id`
+
+### 4. Payment
+   - a. **Initiate Payment**: `(POST) /api/initiate-payment`
+   - b. **Confirm Payment**: `(POST) /api/confirmation`
+
+### 5. User
+   - a. **Get User by Email**: `(GET) /api/users/:email`
+   - b. **Update User by Email**: `(PUT) /api/users/:email`
+   - c. **Follow User**: `(POST) /api/users/follow`
+   - d. **Unfollow User**: `(POST) /api/users/unfollow`
+
+### 6. Notification
+   - a. **Get Notifications by User ID**: `(GET) /api/notification/:userId`
+   - b. **Delete Notification by User ID and Post ID**: `(DELETE) /api/notification/:userId/:postId`
+### 7. Analytics
+   - a. **Get Daily Post Analytics by User ID**: `(GET) /api/analytics/daily/:userId`
+   - b. **Get Weekly Post Analytics by User ID**: `(GET) /api/analytics/weekly/:userId`
+   - c. **Get Monthly Post Analytics by User ID**: `(GET) /api/analytics/monthly/:userId`
+   - d. **Get Admin Analytics**: `(GET) /api/analytics/`
+   - e. **Get All Post Analytics**: `(GET) /api/analytics/posts`
+   - f. **Get All Payment Analytics**: `(GET) /api/analytics/payment`
+### 8. Activity Logs
+   - a. **Get All Activity Logs**: `(GET) /api/activity-logs/`
 
 # How to run the application locally
 
