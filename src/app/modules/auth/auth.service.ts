@@ -7,6 +7,7 @@ import config from "../../config";
 import  jwt, { JwtPayload }  from "jsonwebtoken";
 import { sendEmail } from "../../utils/sendEmail";
 import bcrypt from 'bcrypt'
+import { activityLogService } from "../activitylog/activitylog.service";
 
 const registerUser = async (payload: IUser) => {
     const user = await User.isUserExist(payload.email);
@@ -23,6 +24,7 @@ const registerUser = async (payload: IUser) => {
       throw new AppError(httpStatus.NOT_FOUND, 'This user is not found!');
     }
 
+    await activityLogService.logActivity(user, 'login');
     const userStatus = user?.status;
   
     if (userStatus === 'blocked') {

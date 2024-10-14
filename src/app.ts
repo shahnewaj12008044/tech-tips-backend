@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors({origin:['http://localhost:3000',"https://tech-tips-frontend.vercel.app"]}))
 
 app.get('/', (req:Request, res:Response) => {
   res.send('Hello World! from tech tips blog')

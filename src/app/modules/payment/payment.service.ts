@@ -30,7 +30,7 @@ export const paymentService = {
       cus_name: 'John Doe',
       tran_id: transactionId,
       currency: 'USD',
-      success_url: `https://tech-tips-hub-backend.vercel.app/api/payment/confirmation?transactionId=${transactionId}&status=success`,
+      success_url: `https://tech-tips-backend-eosin.vercel.app/payment/confirmation?transactionId=${transactionId}&status=success`,
       fail_url: 'http://www.merchantdomain.com/failedpage.html',
       cancel_url: 'http://www.merchantdomain.com/cancelpage.html',
       desc: userId,
